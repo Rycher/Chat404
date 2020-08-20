@@ -57,13 +57,12 @@
             
         });
 
-        
+        var altura = $('.messages').attr('scrollHeight');   
 
         $(function(){
-            $("#chat").submit(function() { //no submit do formulário
-              //$('#chat input').val(""); //coloca todos valores de todos inputs do form como vazio 
+            $("#chat").submit(function() { //no submit do formulário              
               $('#chat input[name="message"]').val("");              
-              $('.messages').scrollTop(1000);             
+              $('.messages').scrollTop(altura);             
             });
           });
         
