@@ -23,7 +23,8 @@
         function renderMessage(message) {
             $('.messages').append('<div class="message"><strong>' + message.author + '</strong>: '+ message.message + '</div>');
             $('#message').val("");
-        }    
+        }           
+        
 
         socket.on('receivedMessage', function(message) {
             renderMessage(message);
@@ -50,15 +51,19 @@
                 };                
                 
                 renderMessage(messageObject);                                     
-                socket.emit('sendMessage', messageObject);                
+                socket.emit('sendMessage', messageObject); 
+                     
             }             
             
         });
 
+        
+
         $(function(){
             $("#chat").submit(function() { //no submit do formulário
               //$('#chat input').val(""); //coloca todos valores de todos inputs do form como vazio 
-              $('#chat input[name="message"]').val("");
+              $('#chat input[name="message"]').val("");              
+              $('.messages').scrollTop(1000);             
             });
           });
         
